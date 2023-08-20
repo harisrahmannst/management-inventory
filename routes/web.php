@@ -14,13 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/assets', function () {
+    return view('assets');
+})->middleware(['auth', 'verified'])->name('assets');
+
+Route::get('/userman', function () {
+    return view('userman');
+})->middleware(['auth', 'verified'])->name('userman');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
