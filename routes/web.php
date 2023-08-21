@@ -20,9 +20,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/assets', function () {
-    return view('assets');
-})->middleware(['auth', 'verified'])->name('assets');
+Route::get('/asset', function () {
+    return view('asset');
+})->middleware(['auth', 'verified'])->name('asset');
 
 Route::get('/userman', function () {
     return view('userman');
